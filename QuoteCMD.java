@@ -3,22 +3,20 @@ import java.util.Scanner;
 
 public class QuoteCMD{
   private Scanner inputTaker;
-  private String fileName;
   private QuoteList list;
   public static void main(String [] args){
     // was reading 1 directory above so needed path to move it to 1 below
      String path = "quotes\\";
      String fname = "quotes.xml";
-     QuoteCMD engine = new QuoteCMD(path,fname);
+     QuoteCMD engine = new QuoteCMD(path+fname);
      engine.askSelection();
    }
   /* Constructor
    * @param path the full math of the file
    * @param fname the name of the file including the extension
    */
-  public QuoteCMD(String path, String fname){
+  public QuoteCMD(String fileName){
     inputTaker = new Scanner(System.in);
-    fileName = path + fname;
     QuoteSaxParser parser = new QuoteSaxParser(fileName);
     list = parser.getQuoteList();
   }
