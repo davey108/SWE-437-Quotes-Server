@@ -19,13 +19,13 @@ public class QuoteList
 
    // For returning a random quote
    private Random randomGen;
-   private final int seed = 19580427;
 
    // Default constructor creates a new list and initializes the random seed
    public QuoteList()
    {
       this.quoteArray = new ArrayList<Quote>();
-      randomGen = new Random (seed);
+      // make it really random!
+      randomGen = new Random(System.currentTimeMillis());
    }
 
    // Called when a quote is found, added to the array
@@ -79,11 +79,21 @@ public class QuoteList
    }
 
    /**
-    * Retuen a random quote object from the list.
+    * Return a random quote object from the list.
     * @return a random Quote
     */
    public Quote getRandomQuote ()
    {
+     // the issue before is every run has same quote, so to avoid that, regenerate random quotes everytime!
+     this.randomGen = getNewRandom();
       return quoteArray.get (randomGen.nextInt (quoteArray.size()));
+   }
+   
+   /**
+    * Generate a new random machine based on time
+    * @return a new random machine
+    */
+   private Random getNewRandom(){
+     return new Random(System.currentTimeMillis());   
    }
 }
