@@ -6,18 +6,24 @@ public class QuoteCMD{
   private String fileName;
   private QuoteList list;
   public static void main(String [] args){
+    // was reading 1 directory above so needed path to move it to 1 below
      String path = "quotes\\";
      String fname = "quotes.xml";
      QuoteCMD engine = new QuoteCMD(path,fname);
      engine.askSelection();
    }
+  /* Constructor
+   * @param path the full math of the file
+   * @param fname the name of the file including the extension
+   */
   public QuoteCMD(String path, String fname){
     inputTaker = new Scanner(System.in);
     fileName = path + fname;
     QuoteSaxParser parser = new QuoteSaxParser(fileName);
     list = parser.getQuoteList();
   }
-  
+  /* This is the main driver that takes in the user's input
+   * and call appropriate action and display it to the screen */
   public void askSelection(){
     System.out.println("Welcome to the quote generator");
     String searchBy;
@@ -54,13 +60,11 @@ public class QuoteCMD{
           inputTaker.close();
           System.exit(0);
         default:
-          System.out.println("You did not enter a valid input!");
-          
-        
+          System.out.println("You did not enter a valid input!");        
       }
     }
   }
-  
+  /* Display the menu to the users*/
   public void printMenu(){
     System.out.println("-----------------------------------------");
     System.out.println("Get a random quote:                   rq ");
@@ -70,18 +74,25 @@ public class QuoteCMD{
     System.out.println("Quit:                                 q  ");
     System.out.println("-----------------------------------------");
   }
-  
+  /* Ask the user to input the key they want to
+   * search by
+   * @return the key the user wants to search
+   */
   public String askSearch(){
     System.out.print("Search by: ");
     String searchString = inputTaker.nextLine();
     return searchString.trim();   
   }
-  
+  /* Print out a list of quotes */
   public void printQuoteList(QuoteList quoteList){
-    for(int i = 0; i < quoteList.getSize(); i++){     
-      printQuoteFormat(quoteList.getQuote(i));      
-    }  
+    if(quoteList.getSize() == 0)
+      System.out.println("No search results found");
+    for(int i = 0; i < quoteList.getSize(); i++)     
+      printQuoteFormat(quoteList.getQuote(i));       
   }
+  /* Prints a single quote in a nicely formatted fashion
+   * by printing out the quote, follow by its author
+   */
   public void printQuoteFormat(Quote quote){
     System.out.println(quote.getQuoteText());
     System.out.println("- " + quote.getAuthor());
