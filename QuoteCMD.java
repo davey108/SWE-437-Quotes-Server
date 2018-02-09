@@ -2,7 +2,7 @@ package quotes;
 import java.util.Scanner;
 
 /* This class runs the command line interface for the quote server
- * Author: Khang Chau Vo
+ * @author Khang Chau Vo
  * Last Updated: 2/8/2018
  */
 public class QuoteCMD{
