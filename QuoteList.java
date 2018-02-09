@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * List of all the quotes.
  * @author Mongkoldech Rajapakdee & Jeff Offutt
- *       Date: Nov 2009
+ * Latest update: 2/8/2018
  */
 public class QuoteList
 {
