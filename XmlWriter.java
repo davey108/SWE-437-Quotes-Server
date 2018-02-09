@@ -15,6 +15,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+/* This class writes new quote to the XML file
+ * Author: Ranjit Singh
+ */
 public class XmlWriter {
 
 
