@@ -2,7 +2,10 @@ package quotes;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/* This class check if the entering quotes has special character, recognize by regex
+ * and check if it is a duplicate quote that is already in the database
+ * Author: Ranjit Singh & Khang Chau Vo
+ */
 public class QuoteChecker {
 
     /* to check if there is any special character or numbers in
