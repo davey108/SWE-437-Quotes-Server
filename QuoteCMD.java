@@ -66,7 +66,7 @@ public class QuoteCMD{
         case("aq"):
           Quote userQuote = askInputQuote();
           boolean isValid = isUserQuoteValid(userQuote,list);
-          if(isValid){
+          if(isValid == true){
             XmlWriter writer = new XmlWriter();
             writer.fileWriter(userQuote);
           }
