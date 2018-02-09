@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 /* This class check if the entering quotes has special character, recognize by regex
  * and check if it is a duplicate quote that is already in the database
  * Author: Ranjit Singh & Khang Chau Vo
+ * Lastest Update: 2/8/2018
  */
 public class QuoteChecker {
 
