@@ -14,10 +14,10 @@
   # 2.8.18
   1. Created QuoteChecker.java which verify that the quote provided by the user is valid before writing it into the XML file.
   2. Added checkSpecialCharacters(Quote q) to the QuoteChecker.java class, this method uses regex to confirm that the input string matches the regex that does not allow for Special characters. it is then added to the list.
-  3. The rules for a valid quote are:
->>- No special characters allow (e.g: @, ', #, $, %, etc.)</br >
->>- The provided quote must not be already in the database</br >
->>- The quote cannot be an empty line</br >
+  3. The rules for a valid quote are:</br >
+&nbsp;&nbsp;- No special characters allow (e.g: @, ', #, $, %, etc.)</br >
+&nbsp;&nbsp;- The provided quote must not be already in the database</br >
+&nbsp;&nbsp;- The quote cannot be an empty line</br >
 
   # 2.7.18
   1. Created XmlWriter.java to write the new quotes to the existing XML database file.
