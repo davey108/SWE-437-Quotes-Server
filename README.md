@@ -3,7 +3,7 @@
 // run down of each class, how to run the cli. 
 
 
-//will add a line to seperate * Ahmad
+******************************************************
 # Changelog:
   
   # 2.9.18
@@ -22,7 +22,7 @@
   # 2.7.18
   1. Created XmlWriter.java to write the new quotes to the existing XML database file.
 
-***
+*********************************************************************************************
 
 # Maintainability Assessment: 
 
