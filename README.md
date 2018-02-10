@@ -22,7 +22,7 @@
   # 2.7.18
   1. Created XmlWriter.java to write the new quotes to the existing XML database file.
 
-
+***
 Team Members: Ahmad Aram, Khang Chau Vo and Ranjit Singh
 
 
