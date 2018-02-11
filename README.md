@@ -1,6 +1,10 @@
 # SWE-437-Quotes-Server
 
-// run down of each class, how to run the cli. 
+To Run the Quotes Server CLI:
+1. download/fork/clone the github with all the java classes for this assignment.
+2. compile the classes on your local machine(there should be no compilation errors).
+3. run the QuotesCLI.java file to begin the use of the interface.
+    a. there will be a few different options you may select from to use this interface. each will have a description of its functionality
 
 
 ******************************************************
