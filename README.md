@@ -1,9 +1,18 @@
 # SWE-437-Quotes-Server
 
-To Run the Quotes Server CLI:
+
+# To Run the Quotes Server CLI:
 1. Download/fork/clone the github with all the java classes for this assignment.
 2. Compile the classes on your local machine(there should be no compilation errors).
 3. Run the <code>QuotesCMD.java</code> file to begin the use of the interface.
+
+
+# Class Descriptions:
+QuotesCMD.java - class which is the main driver for the interface allowing the user to interact with the Quotes XML by allowing them to search for quotes from the file, or write appropriately formatted quotes to the file.
+
+QuoteChecker.java - class in which the quotes that are being requested to be added must be checked for validity.
+
+XmlWriter.java - class that allows the interface to write to the existing XML file containing all the quotes.
 
 ******************************************************
 # Changelog:
@@ -29,3 +38,6 @@ To Run the Quotes Server CLI:
 # Maintainability Assessment: 
 
 To begin, the CLI for the quotes server is well documented and is not too difficult to understand even at a first glance. The comments do provide some insight as to what each method does in terms of functionality. Variable naming convention allows whomever is reading the program should be able to understand what each variables purpose is as, as no method is fairly convoluted in terms of functionality. This allows anyone who may want to modify this application to be able to do it with ease.
+
+# Integrity Check
+The integrity of the new data that is being added to the XML/Quotes database is being run through a Regex in the QuoteChecker.java class. This class allows us to check the formatting of the quote to ensure it does not include any special characters and only contains letters and spaces for both the author and the quote fields. which follows the trend for the rest of the quotes in the file. When the user enters a invalid quote, a message stating which field contained invalid characters and allows them to try again. it also ensures that there are no duplicate quotes in the file with the checkQuoteInDatabase() method.
