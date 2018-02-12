@@ -15,7 +15,7 @@
 * Must not already in the database</br >
 * Must not be an empty line</br >
 
-<code>XmlWriter.java</code> - After passing the quote validification, this class writes the quote to the <code>quotes.xml</code> file.
+<code>XmlWriter.java</code> - After passing the quote validation, this class writes the quote to the <code>quotes.xml</code> file.
 
 ******************************************************
 # Changelog:
@@ -43,4 +43,4 @@
 To begin, the CLI for the quotes server is well documented and is not too difficult to understand even at a first glance. The comments do provide some insight as to what each method does in terms of functionality. Variable naming convention allows whomever is reading the program should be able to understand what each variables purpose is as, as no method is fairly convoluted in terms of functionality. This allows anyone who may want to modify this application to be able to do it with ease.
 
 # Integrity Check
-The integrity of the new data that is being added to the XML/Quotes database is being run through a Regex in the <code>QuoteChecker.java</code> class. This class allows us to check the formatting of the quote to ensure it does not include any special characters and only contains letters and spaces for both the author and the quote fields which follows the trend for the rest of the quotes in the file. When the user enters an invalid quote, a message stating which field contained invalid characters and allows them to try again. it also ensures that there are no duplicate quotes in the file with the <code>checkQuoteInDatabase()</code> method.
+The integrity of the new data that is being added to the XML/Quotes database is being run through a Regex in the <code>QuoteChecker.java</code> class. This class allows us to check the formatting of the quote to ensure it does not include any special characters and only contains letters and spaces for both the author and the quote fields which follows the trend for the rest of the quotes in the file. When the user enters an invalid quote, a message stating which field contained invalid characters and allows them to try again. It also ensures that there are no duplicate quotes in the file with the <code>checkQuoteInDatabase()</code> method.
