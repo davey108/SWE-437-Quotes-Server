@@ -7,15 +7,15 @@
 3. Run the <code>QuotesCMD.java</code> file to begin the use of the interface.
 
 
-# Class Descriptions:
+# Written Class Descriptions:
 <code>QuotesCMD.java</code> - The main driver for the interface allowing the user to enjoy a random quotes, search for quotes or authors, and add in their own inspiring quote
 
-QuoteChecker.java - This class checks for the validity of a quote. A quote is valid if it:</br >
+<code>QuoteChecker.java</code> - This class checks for the validity of a quote. A quote is valid if it:</br >
 * Does not have special characters (e.g: @, ', #, $, %, etc.)</br >
 * Must not already in the database</br >
 * Must not be an empty line</br >
 
-XmlWriter.java - After passing the quote validification, this class writes the quote to the <code>quotes.xml</code> file.
+<code>XmlWriter.java</code> - After passing the quote validification, this class writes the quote to the <code>quotes.xml</code> file.
 
 ******************************************************
 # Changelog:
