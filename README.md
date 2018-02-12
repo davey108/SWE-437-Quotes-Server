@@ -8,11 +8,14 @@
 
 
 # Class Descriptions:
-QuotesCMD.java - class which is the main driver for the interface allowing the user to interact with the Quotes XML by allowing them to search for quotes from the file, or write appropriately formatted quotes to the file.
+<code>QuotesCMD.java</code> - The main driver for the interface allowing the user to enjoy a random quotes, search for quotes or authors, and add in their own inspiring quote
 
-QuoteChecker.java - class in which the quotes that are being requested to be added must be checked for validity.
+QuoteChecker.java - This class checks for the validity of a quote. A quote is valid if it:</br >
+* Does not have special characters (e.g: @, ', #, $, %, etc.)</br >
+* Must not already in the database</br >
+* Must not be an empty line</br >
 
-XmlWriter.java - class that allows the interface to write to the existing XML file containing all the quotes.
+XmlWriter.java - After passing the quote validification, this class writes the quote to the <code>quotes.xml</code> file.
 
 ******************************************************
 # Changelog:
