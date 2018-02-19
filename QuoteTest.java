@@ -8,17 +8,22 @@ import org.junit.Test;
 
 public class QuoteTest {
 
-	//All return values for the asserts are 1 or 0 atm since when its checking the actual result it gets what looks like an Object Reference****Ahmad
 	@Test
 	public   void testAuthor() {
 		//make new list that is a reference to compare that is returned by search
-		QuoteList referenceList = new QuoteList();//test quote that will be our reference list
-		QuoteList testList = new QuoteList();//list that we will be using to test against reference
+		//test quote that will be our reference list
+		QuoteList referenceList = new QuoteList();
+		//list that we will be using to test against reference
+		QuoteList testList = new QuoteList();
 		
-		Quote q = new Quote();//temporary quote added to the 
-		q.setAuthor("Richard Nixon");//setting the author of temp quote
-		q.setQuoteText("Hello World");//setting the text of the temp quote
-		referenceList.setQuote(q);//adding the quote to the refernce list to test Search()		
+		//temporary quote added to the 
+		Quote q = new Quote();
+		//setting the author of temp quote
+		q.setAuthor("Richard Nixon");
+		//setting the text of the temp quote
+		q.setQuoteText("Hello World");
+		//adding the quote to the refernce list to test Search()
+		referenceList.setQuote(q);		
 		
 		System.out.println(referenceList.getSize());//test comments will delete
 		testList = referenceList.search("Richard Nixon", 0);//set our temp list to the reference List after a search is done
