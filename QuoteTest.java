@@ -9,7 +9,7 @@ import org.junit.Test;
 public class QuoteTest {
 
 	@Test
-	public   void testAuthor() {
+	public void testAuthor() {
 		//make new list that is a reference to compare that is returned by search
 		//test quote that will be our reference list
 		QuoteList referenceList = new QuoteList();
