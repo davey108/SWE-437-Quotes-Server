@@ -19,6 +19,9 @@
 
 ******************************************************
 # Changelog:
+
+  # 2.18.18
+  1. created a QuoteTest.java file for testing the Search() method located in the QuoteList.java testing many different test cases in regards to searching with a valid/invalid author, as well as a valid/invalid quote.
   
   # 2.9.18
   1. Added <code>checkQuoteInDatabase()</code> in the <code>QuoteChecker.java</code>. This class allows verification of quotes inputted by the users against quotes that were already in the database.
