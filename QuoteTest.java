@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 /*
-@author Ahmad Aram
-Date Last Modified: 02/18/18
+* @author Ahmad Aram
+* Date Last Modified: 02/18/18
 */
+
+/* This class contains the test for the search method of QuoteList.java*/
 public class QuoteTest {
 
 	@Test
