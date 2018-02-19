@@ -66,7 +66,7 @@ public class QuoteTest {
 		q.setAuthor(validAuthor);//set the author to a valid author
 		q.setQuoteText(validQuote);//set the quote to valid text
 		referenceList.setQuote(q);//add the reference quote to the List
-		
+	
 		//begin comparisons if the quote is in the list
 		testQuote = referenceList.search(validQuote, 2);//passing a valid quote and having that store in the testQuote list if found
 		assertEquals(referenceList.getQuote(0),testQuote.getQuote(0));//ensure that both quotes are the same in each list
@@ -78,28 +78,32 @@ public class QuoteTest {
 		//begin comparison if the quote isnt in the list
 		testQuote = referenceList.search(invalidQuote, 2);//setting testQuote to the resulting list if the quote isnt valid hence size =0
 		assertNotEquals(referenceList.getSize(),testQuote.getSize());//compare the size of the lists since the testQuote will be empty since no match found
-		
+	
 		//begin comparison if the author isnt in the list
 		testQuote = referenceList.search(invalidAuthor, 2);
 		assertNotEquals(referenceList.getSize(),testQuote.getSize());//compare the size of the list since the testQuote will be empty since no author was matched
 	}
-	
-	public void test4(){//THIS METHOD ISNT DONE YET!
+	@Test
+	public void test4(){
 		QuoteList testQuote = new QuoteList();
+		QuoteList referenceList = new QuoteList();
+		
 		String validQuote = "I know that you believe you understand what you think I said, but I am not sure you realize that what you heard is not what I meant.";
 		String validAuthor = "Ramsey Clark";
+		String invalidAuthor = "Mickey Mouse";
+		String invalidQuote = "Mickey is a mouse he is";
 		
-		assertEquals(1,testQuote.search(validAuthor,2));
+		Quote q = new Quote();//create a new quote to be added to the reference list
+		q.setAuthor(validAuthor);
+		q.setQuoteText(validQuote);
+		referenceList.setQuote(q);//add the valid quote to the reference list
 		
-		assertNotEquals(1,testQuote.search("Mickey Mouse", 2));
+		//begin comparison if a blank string is entered
+		testQuote = referenceList.search("", 2);//passing an empty string
+		assertEquals(0,testQuote.getSize());//should return false since the list should be empty
 		
-		assertEquals(1,testQuote.search(validQuote, 2));
-		assertNotEquals(1,testQuote.search("i love testing!", 2));
 		
 	}
-	/*TESTER MAIN TO ENSURE VALUES ARE ADDED
-	 * public static void main(String args[]){
-		testAuthor();
-	}*/
+
 
 }
