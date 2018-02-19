@@ -5,7 +5,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import org.junit.Test;
-
+/*
+@author Ahmad Aram
+Date Last Modified: 02/18/18
+*/
 public class QuoteTest {
 
 	@Test
