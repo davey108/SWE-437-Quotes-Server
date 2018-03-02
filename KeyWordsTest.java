@@ -5,9 +5,6 @@ import java.io.PrintStream;
 
 import org.junit.*;
 
-
-import quotes.QuoteCMD;
-
 public class KeyWordsTest {
 	QuoteCMD cmd;
 	String [] keywords;
