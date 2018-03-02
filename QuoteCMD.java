@@ -1,4 +1,5 @@
 package quotes;
+
 import java.util.Scanner;
 
 /* This class runs the command line interface for the quote server
@@ -147,5 +148,29 @@ public class QuoteCMD{
       return false;
     }
     return true;
+  }
+  /**
+   * Given a list of keywords, print out those keywords
+   */
+  public void printKeyWords(String [] keywords){
+	  if(keywords == null){
+		  System.out.print("");
+	  }
+	  else{
+		  int len = keywords.length;
+		  for(int i = 0; i < len; i++){
+			  // empty is treated as nothing
+			  if(keywords[i].equals(" ")){
+				  System.out.print("");
+			  }
+			  else{
+				  System.out.print(keywords[i]);
+			  }
+			  // print separation for if length is not last one
+			  if(i < len - 1){
+				  System.out.print(", ");
+			  }
+		  }
+	  }
   }
 }
