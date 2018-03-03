@@ -18,6 +18,8 @@ import org.xml.sax.SAXException;
 
 /* This class writes new quote to the XML file
  * Author: Ranjit Singh
+ * 
+ * Changed addNewElement() on 3/3/2018 by Ranjit. To add category element to the quote
  */
 public class XmlWriter {
 
@@ -93,5 +95,10 @@ public class XmlWriter {
         Element author = doc.createElement("author");
         author.appendChild(doc.createTextNode(q.getAuthor()));
         quote.appendChild(author);
+        
+        //Create and Add category
+        Element category = doc.createElement("category");
+        author.appendChild(doc.createTextNode(q.getCategory()));
+        quote.appendChild(category);
     }
 }
