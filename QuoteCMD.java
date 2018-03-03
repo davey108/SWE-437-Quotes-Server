@@ -129,7 +129,8 @@ public class QuoteCMD{
     String userQuoteText = inputTaker.nextLine().trim();
     System.out.print("Enter the author name of the quote: ");
     String userAuthorText = inputTaker.nextLine().trim();
-    return new Quote(userAuthorText,userQuoteText);  
+    // initially blank keyword, unless we add in new option allowing user to tag a quote with a keyword
+    return new Quote(userAuthorText,userQuoteText,"");  
   }
   
   /* Given a quote, validate the quote
