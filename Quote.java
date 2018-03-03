@@ -1,5 +1,6 @@
 package quotes;
 
+
 /**
  * Quote data object.
  * @author Mongkoldech Rajapakdee & Jeff offutt
@@ -11,6 +12,7 @@ public class Quote
 {
    private String author;
    private String quoteText;
+   private String category;
 
    // Default constructor does nothing
    public Quote ()
@@ -18,10 +20,11 @@ public class Quote
    }
 
    // Constructor that assigns both strings
-   public Quote (String author, String quoteText)
+   public Quote (String author, String quoteText, String category)
    {
       this.author = author;
       this.quoteText = quoteText;
+      this.category = category;
    }
 
    // Getter and setter for author
@@ -33,7 +36,7 @@ public class Quote
    {
       this.author = author;
    }
-
+   
    // Getter and setter for quoteText
    public String getQuoteText ()
    {
@@ -43,7 +46,15 @@ public class Quote
    {
       this.quoteText = quoteText;
    }
-
+   
+   // Getter and setter for category
+   public String getCategory(){
+	   return category;
+   }
+   public void setCategory(String category){
+	   this.category = category;
+   }
+   
    @Override
    public String toString ()
    {
