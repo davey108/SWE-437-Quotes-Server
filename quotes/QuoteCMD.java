@@ -1,7 +1,7 @@
 package quotes;
 
 import java.util.Scanner;
-
+import exception.NoKeyWordException;
 
 /* This class runs the command line interface for the quote server
  * @author Khang Chau Vo
