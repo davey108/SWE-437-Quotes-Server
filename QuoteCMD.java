@@ -2,7 +2,7 @@ package quotes;
 
 import java.util.Scanner;
 
-import exception.NoKeyWordException;
+import quotes.NoKeyWordException;
 
 /* This class runs the command line interface for the quote server
  * @author Khang Chau Vo
@@ -15,11 +15,12 @@ public class QuoteCMD{
   private QuoteSaxParser parser;
   public static void main(String [] args){
     // was reading 1 directory above so needed path to move it to 1 below
-     //String path = "quotes\\";
-     String fname = "quotes.xml";
-     QuoteCMD engine = new QuoteCMD(fname);
-     engine.askSelection();
-   }
+    String path = "quotes\\";
+    String fname = "quotes.xml";
+    QuoteCMD engine = new QuoteCMD(path+fname);
+    engine.askSelection();
+    
+  }
   /* Constructor
    * @param path the full math of the file
    * @param fname the name of the file including the extension
@@ -35,7 +36,7 @@ public class QuoteCMD{
     parser = new QuoteSaxParser(fileName);
     list = parser.getQuoteList();
   }
-  
+
   /* This is the main driver that takes in the user's input
    * and call appropriate action and display it to the screen */
   public void askSelection(){
@@ -61,12 +62,12 @@ public class QuoteCMD{
           printQuoteList(temp);
           break;
         case("sa"):
-          searchBy = askSearch();  
+          searchBy = askSearch();
           temp = list.search(searchBy,0);
           printQuoteList(temp);
           break;
         case("s"):
-          searchBy = askSearch();   
+          searchBy = askSearch();
           temp = list.search(searchBy,2);
           printQuoteList(temp);
           break;
@@ -78,12 +79,17 @@ public class QuoteCMD{
             writer.fileWriter(userQuote);
           }
           break;
+        case("sk"):
+          searchBy = askForKeywords();
+          temp = list.search(searchBy,3);
+          printQuoteList(temp);
+          break;
         case("q"):
           System.out.println("Goodbye!");
           inputTaker.close();
           System.exit(0);
         default:
-          System.out.println("You did not enter a valid input!");        
+          System.out.println("You did not enter a valid input!");
       }
     }
   }
@@ -95,16 +101,17 @@ public class QuoteCMD{
     System.out.println("Search by author:                     sa ");
     System.out.println("Search by author and quote:           s  ");
     System.out.println("Add in your custom quote:             aq ");
+    System.out.println("Search by keywords:                   sk ");
     System.out.println("Quit:                                 q  ");
     System.out.println("-----------------------------------------");
   }
   /**
-   * Return the list of quotes 
+   * Return the list of quotes
    * @return
    * 		The list of quotes
    */
   public QuoteList getQuoteList(){
-	  return this.list;
+    return this.list;
   }
   /* Ask the user to input the key they want to
    * search by
@@ -113,14 +120,14 @@ public class QuoteCMD{
   public String askSearch(){
     System.out.print("Search by: ");
     String searchString = inputTaker.nextLine();
-    return searchString.trim();   
+    return searchString.trim();
   }
   /* Print out a list of quotes */
   public void printQuoteList(QuoteList quoteList){
     if(quoteList.getSize() == 0)
       System.out.println("No search results found");
-    for(int i = 0; i < quoteList.getSize(); i++)     
-      printQuoteFormat(quoteList.getQuote(i));       
+    for(int i = 0; i < quoteList.getSize(); i++)
+      printQuoteFormat(quoteList.getQuote(i));
   }
   /* Prints a single quote in a nicely formatted fashion
    * by printing out the quote, follow by its author
@@ -140,9 +147,9 @@ public class QuoteCMD{
     System.out.print("Enter the author name of the quote: ");
     String userAuthorText = inputTaker.nextLine().trim();
     // initially blank keyword, unless we add in new option allowing user to tag a quote with a keyword
-    return new Quote(userAuthorText,userQuoteText,"");  
+    return new Quote(userAuthorText,userQuoteText,"");
   }
-  
+
   /* Given a quote, validate the quote
    * @return true if the quote is valid
    * @return false if the quote is invalid (has special character, repeat)
@@ -164,25 +171,25 @@ public class QuoteCMD{
    * Given a list of keywords, print out those keywords
    */
   public void printKeyWords(String [] keywords){
-	  if(keywords == null){
-		  System.out.print("");
-	  }
-	  else{
-		  int len = keywords.length;
-		  for(int i = 0; i < len; i++){
-			  // empty is treated as nothing
-			  if(keywords[i].equals(" ")){
-				  System.out.print("");
-			  }
-			  else{
-				  System.out.print(keywords[i]);
-			  }
-			  // print separation for if length is not last one
-			  if(i < len - 1){
-				  System.out.print(", ");
-			  }
-		  }
-	  }
+    if(keywords == null){
+      System.out.print("");
+    }
+    else{
+      int len = keywords.length;
+      for(int i = 0; i < len; i++){
+        // empty is treated as nothing
+        if(keywords[i].equals(" ")){
+          System.out.print("");
+        }
+        else{
+          System.out.print(keywords[i]);
+        }
+        // print separation for if length is not last one
+        if(i < len - 1){
+          System.out.print(", ");
+        }
+      }
+    }
   }
   /**
    * Given a list of keywords and a keyword to search by, return a list of the result of the keysearch
@@ -192,25 +199,31 @@ public class QuoteCMD{
    * 		NoKeyWordException if no such keyword exist in list of keywords
    */
   public QuoteList searchKey(String searchKey, String [] keywords) throws NoKeyWordException{
-	  // transform space to be the same as empty search
-	  if(searchKey.equals(" ")){
-		  searchKey = "";
-	  }
-	  boolean containsKey = false;
-	  for(String key : keywords){
-		  if(key.equals(searchKey)){
-			  containsKey = true;
-			  break;
-		  }
-	  }
-	  if(!containsKey)
-		  throw new NoKeyWordException();
-	  if(searchKey.equals("") || searchKey.equals(" "))
-		  System.out.print("Search result for \"\": ");
-	  else
-		  System.out.print("Search result for " + searchKey + ": ");
-	  // search for the quote
-	  return list.search(searchKey, 3);
+    // transform space to be the same as empty search
+    if(searchKey.equals(" ")){
+      searchKey = "";
+    }
+    boolean containsKey = false;
+    for(String key : keywords){
+      if(key.equals(searchKey)){
+        containsKey = true;
+        break;
+      }
+    }
+    if(!containsKey)
+      throw new NoKeyWordException();
+    if(searchKey.equals("") || searchKey.equals(" "))
+      System.out.print("Search result for \"\": ");
+    else
+      System.out.print("Search result for " + searchKey + ": ");
+    // search for the quote
+    return list.search(searchKey, 3);
   }
-  
+
+  public String askForKeywords(){
+    System.out.print("Enter the keyword that you want to search by: ");
+    String input = inputTaker.nextLine();
+    return input.trim();
+  }
+
 }
