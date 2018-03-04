@@ -1,12 +1,15 @@
 
-
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.*;
-
+/**
+ * This class test the keyword search functionality within QuoteCMD.java
+ * @author Khang Chau Vo
+ * Last updated: 3/3/2018
+ */
 
 public class KeyWordsTest {
 	QuoteCMD cmd;
