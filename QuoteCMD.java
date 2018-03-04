@@ -2,6 +2,7 @@ package quotes;
 
 import java.util.Scanner;
 
+import exception.NoKeyWordException;
 
 /* This class runs the command line interface for the quote server
  * @author Khang Chau Vo
@@ -14,9 +15,9 @@ public class QuoteCMD{
   private QuoteSaxParser parser;
   public static void main(String [] args){
     // was reading 1 directory above so needed path to move it to 1 below
-    String path = "quotes\\";
+    //String path = "quotes\\";
     String fname = "quotes.xml";
-    QuoteCMD engine = new QuoteCMD(path+fname);
+    QuoteCMD engine = new QuoteCMD(fname);
     engine.askSelection();
     
   }
@@ -79,6 +80,9 @@ public class QuoteCMD{
           }
           break;
         case("sk"):
+          System.out.print("List of keywords: ");
+          printKeyWords(list.getKeys().toArray(new String[0]));
+          System.out.println();
           searchBy = askForKeywords();
           processKeyWord(searchBy);
           break;
@@ -235,7 +239,6 @@ public class QuoteCMD{
    * 		Return empty string if the list is empty, else return null
    */
   public String processKeyWord(String keyword){
-	  printKeyWords(list.getKeys().toArray(new String[0]));
 	  System.out.println();
 	  try{
 		  QuoteList searchResult = searchKey(keyword,list.getKeys().toArray(new String[0]));
