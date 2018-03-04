@@ -85,7 +85,7 @@ public class QuoteList
 
    //Function to get list of Keywords for the quotes without duplication
    /*added on 3/3/2018 by Ranjit.*/
-   public ArrayList getKeys(){
+   public ArrayList<String> getKeys(){
 
       //String array list ot return
       ArrayList<String> keywordsList = new ArrayList<>();

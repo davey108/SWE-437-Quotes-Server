@@ -2,6 +2,8 @@ package quotes;
 
 import java.util.Scanner;
 
+import exception.NoKeyWordException;
+
 /* This class runs the command line interface for the quote server
  * @author Khang Chau Vo
  * Last Updated: 2/8/2018
@@ -13,9 +15,9 @@ public class QuoteCMD{
   private QuoteSaxParser parser;
   public static void main(String [] args){
     // was reading 1 directory above so needed path to move it to 1 below
-     String path = "quotes\\";
+     //String path = "quotes\\";
      String fname = "quotes.xml";
-     QuoteCMD engine = new QuoteCMD(path+fname);
+     QuoteCMD engine = new QuoteCMD(fname);
      engine.askSelection();
    }
   /* Constructor
@@ -96,6 +98,14 @@ public class QuoteCMD{
     System.out.println("Quit:                                 q  ");
     System.out.println("-----------------------------------------");
   }
+  /**
+   * Return the list of quotes 
+   * @return
+   * 		The list of quotes
+   */
+  public QuoteList getQuoteList(){
+	  return this.list;
+  }
   /* Ask the user to input the key they want to
    * search by
    * @return the key the user wants to search
@@ -174,4 +184,33 @@ public class QuoteCMD{
 		  }
 	  }
   }
+  /**
+   * Given a list of keywords and a keyword to search by, return a list of the result of the keysearch
+   * @return
+   * 		The list of quotes associated with that keyword
+   * @throws
+   * 		NoKeyWordException if no such keyword exist in list of keywords
+   */
+  public QuoteList searchKey(String searchKey, String [] keywords) throws NoKeyWordException{
+	  // transform space to be the same as empty search
+	  if(searchKey.equals(" ")){
+		  searchKey = "";
+	  }
+	  boolean containsKey = false;
+	  for(String key : keywords){
+		  if(key.equals(searchKey)){
+			  containsKey = true;
+			  break;
+		  }
+	  }
+	  if(!containsKey)
+		  throw new NoKeyWordException();
+	  if(searchKey.equals("") || searchKey.equals(" "))
+		  System.out.print("Search result for \"\": ");
+	  else
+		  System.out.print("Search result for " + searchKey + ": ");
+	  // search for the quote
+	  return list.search(searchKey, 3);
+  }
+  
 }
