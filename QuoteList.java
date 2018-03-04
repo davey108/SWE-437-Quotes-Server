@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * List of all the quotes.
  * @author Mongkoldech Rajapakdee & Jeff Offutt
- * Latest update: 2/8/2018
+ *       Date: Nov 2009
  */
 public class QuoteList
 {
@@ -16,6 +16,7 @@ public class QuoteList
    /* package */ static final int SearchAuthorVal = 0;
    /* package */ static final int SearchTextVal   = 1;
    /* package */ static final int SearchBothVal   = 2;
+   /* package */ static final int SearchKeyVal   = 3; /*added on 3/3/2018 by Ranjit. To Search by keyword*/
 
    // For returning a random quote
    private Random randomGen;
@@ -49,8 +50,8 @@ public class QuoteList
    /**
     * Search the quotes in the list, based on searchString
     * @param searchString String input for search
-    * @param mode search in the author, quotr, or both respectively 0, 1, 2 (reference by static values)
-    * @return QuoteList containing the search results (may be multiple quotes)
+    * @param mode search in the author, quotr, or both
+    * @return quotes.QuoteList containing the search results (may be multiple quotes)
     */
    public QuoteList search (String searchString, int mode)
    {
@@ -74,13 +75,39 @@ public class QuoteList
             // System.out.println ("Matched Both ");
             returnQuote.setQuote (quote);
          }
+         /*added on 3/3/2018 by Ranjit. To Search by keyword*/
+         else if((mode == SearchKeyVal) && quote.getCategory().toLowerCase().indexOf (searchString.toLowerCase()) != -1){
+            returnQuote.setQuote (quote);
+         }
       }
       return returnQuote;
    }
 
+   //Function to get list of Keywords for the quotes without duplication
+   /*added on 3/3/2018 by Ranjit.*/
+   public ArrayList getKeys(){
+
+      //String array list ot return
+      ArrayList<String> keywordsList = new ArrayList<>();
+      Quote quote;   //variable to get quote
+
+      //loop over the quotes List
+      for (int i = 0; i < quoteArray.size(); i++){
+
+         quote = quoteArray.get(i); //getting each quote
+
+         //checking if the keyword is not in String list
+         if( !keywordsList.contains(quote.getCategory())){
+            //add keyword to the sting list
+            keywordsList.add(quote.getCategory());
+         }
+      }
+      return keywordsList;
+   }
+
    /**
     * Return a random quote object from the list.
-    * @return a random Quote
+    * @return a random quotes.Quote
     */
    public Quote getRandomQuote ()
    {
