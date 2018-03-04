@@ -30,6 +30,9 @@
   8. Created a custom exception <code>NoKeyWordException</code> to appear when an invalid keyword is inputted
   9. Create a test file for the new keyword search feature in <code>KeyWordsTest.java</code>
   
+  # 3.1.18
+  1. Create user story for the new search by keyword feature in <code>Search Keyword User Story.md</code>
+  
   # 2.18.18
   1. Created a <code>QuoteTest.java</code> file for testing the <code>Search()</code> method located in the <code>QuoteList.java</code> testing many different test cases in regards to searching with a valid/invalid author, as well as a valid/invalid quote.
   
