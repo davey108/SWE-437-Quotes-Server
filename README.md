@@ -17,6 +17,8 @@
 
 <code>XmlWriter.java</code> - After passing the quote validation, this class writes the quote to the <code>quotes.xml</code> file.
 
+<code>KeyWordTest.java</code> - Test cases for the new feature which allows the user to search for quotes based on keywords/category in <code>QuoteCMD.java</code>
+
 ******************************************************
 # Changelog:
   # 3.3.18
