@@ -1,10 +1,18 @@
-package quotes;
+package exception;
+/*
+* @author Ahmad Aram
+* Date Last Modified: 02/18/18
+*/
 
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import quotes.Quote;
+import quotes.QuoteList;
+
+
 /*
 * @author Ahmad Aram
 * Date Last Modified: 02/18/18
