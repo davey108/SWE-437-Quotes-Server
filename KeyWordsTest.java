@@ -5,6 +5,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.*;
+
+import exception.NoKeyWordException;
+import quotes.Quote;
+import quotes.QuoteCMD;
+import quotes.QuoteList;
 /**
  * This class test the keyword search functionality within QuoteCMD.java
  * @author Khang Chau Vo
