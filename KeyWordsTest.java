@@ -1,4 +1,4 @@
-package test;
+
 
 import static org.junit.Assert.*;
 
@@ -7,10 +7,6 @@ import java.io.PrintStream;
 
 import org.junit.*;
 
-import exception.NoKeyWordException;
-import quotes.Quote;
-import quotes.QuoteCMD;
-import quotes.QuoteList;
 
 public class KeyWordsTest {
 	QuoteCMD cmd;
