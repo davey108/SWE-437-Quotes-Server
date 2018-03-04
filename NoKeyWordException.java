@@ -1,4 +1,4 @@
-package exception;
+
 
 public class NoKeyWordException extends Exception {
 
