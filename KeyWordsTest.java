@@ -150,10 +150,60 @@ public class KeyWordsTest {
 		assertEquals(1,resultSearch.getSize());
 		Quote firstResult = resultSearch.getQuote(0);
 		String quoteTextExpected = "I know that you believe you understand what you think I said, "
-				+ "but I am not sure you realize that what you heard is not what I meant. ";
+				+ "but I am not sure you realize that what you heard is not what I meant.";
 		assertEquals(quoteTextExpected,firstResult.getQuoteText());
 		String authorExpected = "Richard Nixon";
 		assertEquals(authorExpected,firstResult.getAuthor());		
+	}
+	
+	/**
+	 * Given a legit key word, check if the list of quote return contains all the required quotes
+	 * @throws NoKeyWordException
+	 */
+	@Test
+	public void testSearchKeyMultipleQuotes() throws NoKeyWordException{
+		setSearchKey("Random");
+		setKeyContents(cmd.getQuoteList().getKeys().toArray(new String[0]));
+		QuoteList resultSearch = cmd.searchKey(searchKey, keywords);
+		// there should be 4 elements
+		assertEquals(4,resultSearch.getSize());
+		Quote firstResult = resultSearch.getQuote(0);
+		Quote secondResult = resultSearch.getQuote(1);
+		Quote thirdResult = resultSearch.getQuote(2);
+		Quote fourthResult = resultSearch.getQuote(3);
+		String quoteExpectedFirst = "Eschew obfuscation!";
+		assertEquals(quoteExpectedFirst,firstResult.getQuoteText());
+		String authorExpectedFirst = "Don Cunningham";
+		assertEquals(authorExpectedFirst,firstResult.getAuthor());
+		
+		String quoteExpectedSecond = "The only man who behaves sensibly is my tailor; he "
+				+ "takes my measure anew every time he sees me, "
+				+ "whilst all the rest go on with their old measurements, expecting them to fit me.";
+		assertEquals(quoteExpectedSecond,secondResult.getQuoteText());
+		String authorExpectedSecond = "George Bernard Shaw";
+		assertEquals(authorExpectedSecond,secondResult.getAuthor());
+		
+		String quoteExpectedThird = "We often do not know how to make those decisions "
+				+ "[about a system design] until we can play with the system.";
+		assertEquals(quoteExpectedThird,thirdResult.getQuoteText());
+		String authorExpectedThird = "David Parnas \"Software Aspects of SDI\"";
+		assertEquals(authorExpectedThird,thirdResult.getAuthor());
+		
+		String quoteExpectedFourth = "Our group is the best.";
+		assertEquals(quoteExpectedFourth,fourthResult.getQuoteText());
+		String authorExpectedFourth = "G. Awesome";
+		assertEquals(authorExpectedFourth,fourthResult.getAuthor());		
+	}
+	/**
+	 * Given a nonexistence keyword, check if the result will catch the error
+	 * @throws NoKeyWordException 
+	 */
+	@Test
+	public void testNonRealKey() throws NoKeyWordException{
+		setSearchKey("");
+		setKeyContents(cmd.getQuoteList().getKeys().toArray(new String[0]));
+		String result = cmd.processKeyWord(searchKey);
+		assertEquals("",result);
 	}
 	
 }

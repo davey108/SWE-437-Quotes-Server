@@ -2,7 +2,7 @@ package quotes;
 
 import java.util.Scanner;
 
-import quotes.NoKeyWordException;
+import exception.NoKeyWordException;
 
 /* This class runs the command line interface for the quote server
  * @author Khang Chau Vo
@@ -81,8 +81,7 @@ public class QuoteCMD{
           break;
         case("sk"):
           searchBy = askForKeywords();
-          temp = list.search(searchBy,3);
-          printQuoteList(temp);
+          processKeyWord(searchBy);
           break;
         case("q"):
           System.out.println("Goodbye!");
@@ -219,11 +218,36 @@ public class QuoteCMD{
     // search for the quote
     return list.search(searchKey, 3);
   }
-
+/**
+ * Ask for the keyword to search for
+ * @return
+ * 		The user search string
+ */
   public String askForKeywords(){
     System.out.print("Enter the keyword that you want to search by: ");
     String input = inputTaker.nextLine();
     return input.trim();
+  }
+  /**
+   * Given the user keyword to search for, search the list of quotes for that keywords and print out those quotes
+   * @param keyword
+   * 		The keyword to search for quotes
+   * @return
+   * 		Return empty string if the list is empty, else return null
+   */
+  public String processKeyWord(String keyword){
+	  printKeyWords(list.getKeys().toArray(new String[0]));
+	  System.out.println();
+	  try{
+		  QuoteList searchResult = searchKey(keyword,list.getKeys().toArray(new String[0]));
+		  System.out.println();
+		  printQuoteList(searchResult);
+	  }
+	  catch(NoKeyWordException e){
+		  System.out.println("No quotes found for the keyword: " + keyword);
+		  return "";
+	  }
+	  return null;
   }
 
 }
