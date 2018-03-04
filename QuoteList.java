@@ -8,6 +8,7 @@ import java.util.Random;
  * @author Mongkoldech Rajapakdee & Jeff Offutt
  *       Date: Nov 2009
  * Last updated: 3/3/2018
+ * Lastest changes: added in a new search mode (3) to search for quotes by keywords
  */
 public class QuoteList
 {
