@@ -6,6 +6,7 @@ import java.util.Scanner;
 /* This class runs the command line interface for the quote server
  * @author Khang Chau Vo
  * Last Updated: 3/3/2018
+ * Lastest changed: updated search key functionality to correctly display keywords first then prompt the input
  */
 public class QuoteCMD{
   private Scanner inputTaker;
