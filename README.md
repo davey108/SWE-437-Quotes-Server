@@ -19,7 +19,17 @@
 
 ******************************************************
 # Changelog:
-
+  # 3.3.18
+  1. Added in a new tag <code>category</code> for all quotes in <code>quotes.xml</code>
+  2. Changed <code>QuoteSaxParser.java</code> to include processing <code>category</code> tag from the xml
+  3. Changed <code>Quote.java</code> to include a new field called <code>category</code> to tag each quote by a certain category
+  4. Implemented a new function <code>getKeys()</code> in <code>QuoteList.java</code> to return a list of all keys in all the quotes in the quote list without duplicate
+  5. Implemented a new search mode in <code>search</code> method of <code>QuoteList.java</code> to include the search for all the quotes with the specified keyword, aka category
+  6. Changed <code>QuoteCMD.java</code> to include new functionality which allows the user to search by keyword or quotes' category
+  7. Implemented changes to <code>XMLWriter.java</code> to include writing the <code>category</code> field to the xml file for all quotes
+  8. Created a custom exception <code>NoKeyWordException</code> to appear when an invalid keyword is inputted
+  9. Create a test file for the new keyword search feature in <code>KeyWordsTest.java</code>
+  
   # 2.18.18
   1. Created a <code>QuoteTest.java</code> file for testing the <code>Search()</code> method located in the <code>QuoteList.java</code> testing many different test cases in regards to searching with a valid/invalid author, as well as a valid/invalid quote.
   
